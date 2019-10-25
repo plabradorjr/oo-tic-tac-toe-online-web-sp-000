@@ -2,7 +2,7 @@ require 'pry'
 
 class TicTacToe
 
-  attr_accessor :board 
+  attr_accessor :board
 
   def initialize(board = nil)
     @board = Array.new(9, " ")
@@ -61,10 +61,10 @@ class TicTacToe
   # def current_player
   #   turn_count % 2 == 0 ? "X" : "O"
   # end
-  # 
+  #
   # def turn_count
   #   @board.count{|token| token == "X" || token == "O"}
   # end
-  # 
-  
+  #
+
 end
