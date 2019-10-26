@@ -45,7 +45,7 @@ class TicTacToe
   end
 
   def turn
-    puts "Please enter 1-9:"
+    puts "Please enter (1-9):"
     input = gets.strip
     index = input_to_index(input)
     if valid_move?(index)
@@ -68,12 +68,12 @@ class TicTacToe
     WIN_COMBINATIONS.detect do |combo|
       @board[combo[0]] == @board[combo[1]] &&
       @board[combo[1]] == @board[combo[2]] &&
-      position_taken?(index)
+      position_taken?(combo[0])
     end
   end
 
   def full?
-    @board.all? { |token| token == 'X' || token == 'O' }
+    @board.all? { |token| token != " " }
   end
 
   def draw?
