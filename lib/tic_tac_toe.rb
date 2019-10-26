@@ -63,7 +63,7 @@ class TicTacToe
   def current_player
     turn_count % 2 == 0 ? "X" : "O"
   end
-  
+
   def won?
     WIN_COMBINATIONS.detect do |combo|
       @board[combo[0]] == @board[combo[1]] &&
@@ -83,7 +83,7 @@ class TicTacToe
   def over?
     won?(@board) || draw?(@board)
   end
-  
+
   def winner(board)
     if winning_combo = won?(board)
       board[winning_combo.first]
