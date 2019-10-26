@@ -36,20 +36,20 @@ class TicTacToe
   end
 
   def position_taken?
-    @board[@index] == 'X' || @board[@index] == 'O'
+    @board[index] == 'X' || @board[index] == 'O'
   end
 
 
   def valid_move?
-    @index.between?(0, 8) && !position_taken?(index)
+    index.between?(0, 8) && !position_taken?(index)
   end
 
   def turn
     puts "Please enter 1-9:"
     input = gets.strip
-    @index = input_to_index(input)
-    if valid_move?(@index)
-      move(@index, current_player)
+    index = input_to_index(input)
+    if valid_move?(index)
+      move(index, current_player)
       display_board
     else
       turn
@@ -68,7 +68,7 @@ class TicTacToe
     WIN_COMBINATIONS.detect do |combo|
       @board[combo[0]] == @board[combo[1]] &&
       @board[combo[1]] == @board[combo[2]] &&
-      position_taken?(@index)
+      position_taken?
     end
   end
 
@@ -84,9 +84,9 @@ class TicTacToe
     won?(@board) || draw?(@board)
   end
 
-  def winner(board)
-    if winning_combo = won?(board)
-      board[winning_combo.first]
+  def winner
+    if won?
+      @board[winning_combo.first]
     end
   end
 
