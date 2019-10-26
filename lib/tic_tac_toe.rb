@@ -90,4 +90,10 @@ class TicTacToe
     end
   end
 
+
+  def play 
+    turn until over?
+    puts winner ? "Congratuations #{winner}!" : "Cat's Game!"
+  end
+
 end
